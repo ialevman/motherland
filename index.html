@@ -26,7 +26,8 @@
             letter-spacing: 0.5rem;
             color: white;
             position: relative;
-            z-index: 1; /* Keeps OHRAD behind */
+            z-index: 1; /* OHRAD stays behind initially */
+            transition: opacity 1s ease-in; /* Smooth opacity change */
         }
         .question {
             font-size: 2.5rem;
@@ -37,24 +38,28 @@
             top: 50%; /* Centers the question vertically */
             left: 50%;
             transform: translate(-50%, -50%); /* Exact centering */
-            z-index: 2; /* Keeps question on top */
+            z-index: 3; /* Keeps the question in the forefront */
         }
         /* Show question after 2 seconds */
-        .show-question {
+        .show-question .question {
             opacity: 1;
+        }
+        /* Make OHRAD semi-transparent after 2 seconds */
+        .show-question .ohrad {
+            opacity: 0.1; /* 90% transparency */
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container show-question">
         <div class="ohrad">OHRAD</div>
         <div class="question">What is your motherland?</div>
     </div>
 
     <script>
-        // Show the question after a 2-second delay
+        // Show the question and make OHRAD transparent after a 2-second delay
         setTimeout(function() {
-            document.querySelector('.question').classList.add('show-question');
+            document.querySelector('.container').classList.add('show-question');
         }, 2000); // 2000ms = 2 seconds delay
     </script>
 </body>
