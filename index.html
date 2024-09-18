@@ -24,17 +24,20 @@
         .ohrad {
             font-size: 8rem;
             letter-spacing: 0.2rem;
-            color: rgba(255, 255, 255, 0.2);
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            color: white;
         }
         .question {
             font-size: 2rem;
-            position: relative;
-            z-index: 1;
-            color: white;
+            opacity: 0; /* Hide the question initially */
+            transition: opacity 1s ease-in; /* Smooth transition */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        /* Animation to show question after 2 seconds */
+        .show-question {
+            opacity: 1;
         }
     </style>
 </head>
@@ -43,5 +46,13 @@
         <div class="ohrad">OHRAD</div>
         <div class="question">What is your motherland?</div>
     </div>
+
+    <script>
+        // Wait for 2 seconds and then show the question
+        setTimeout(function() {
+            document.querySelector('.question').classList.add('show-question');
+        }, 2000); // 2000ms = 2 seconds
+    </script>
 </body>
 </html>
+
