@@ -22,19 +22,20 @@
             text-align: center;
         }
         .ohrad {
-            font-size: 12rem; /* Increased font size for clarity */
+            font-size: 12rem;
             letter-spacing: 0.5rem;
             color: white;
             position: relative;
             z-index: 1; /* Keeps OHRAD behind */
         }
         .question {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            white-space: nowrap; /* Keeps the question in one line */
             opacity: 0; /* Hidden initially */
             transition: opacity 1s ease-in; /* Smooth fade-in for question */
             position: absolute;
-            top: 50%; /* Vertically centers the question */
-            left: 50%; /* Horizontally centers the question */
+            top: 50%; /* Centers the question vertically */
+            left: 50%;
             transform: translate(-50%, -50%); /* Exact centering */
             z-index: 2; /* Keeps question on top */
         }
@@ -58,5 +59,3 @@
     </script>
 </body>
 </html>
-
-
