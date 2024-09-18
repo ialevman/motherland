@@ -22,45 +22,64 @@
             text-align: center;
         }
         .ohrad {
-            font-size: 12rem;
-            letter-spacing: 0.5rem;
+            font-size: 8rem;
+            letter-spacing: 0.3rem;
             color: white;
             position: relative;
-            z-index: 1; /* OHRAD stays behind initially */
-            transition: opacity 1s ease-in; /* Smooth opacity change */
+            z-index: 1;
+            transition: opacity 1s ease-in;
         }
         .question {
-            font-size: 2.5rem;
-            white-space: nowrap; /* Keeps the question in one line */
+            font-size: 1.5rem;
+            white-space: nowrap;
             opacity: 0; /* Hidden initially */
-            transition: opacity 1s ease-in; /* Smooth fade-in for question */
+            transition: opacity 1s ease-in, z-index 1s ease-in;
             position: absolute;
-            top: 50%; /* Centers the question vertically */
+            top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Exact centering */
-            z-index: 3; /* Keeps the question in the forefront */
+            transform: translate(-50%, -50%);
+            z-index: 3;
         }
-        /* Show question after 2 seconds */
         .show-question .question {
             opacity: 1;
         }
-        /* Make OHRAD semi-transparent after 2 seconds */
         .show-question .ohrad {
             opacity: 0.1; /* 90% transparency */
+        }
+
+        /* Media Query for Mobile Devices */
+        @media only screen and (max-width: 768px) {
+            .ohrad {
+                font-size: 5rem;
+                letter-spacing: 0.2rem;
+            }
+            .question {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .ohrad {
+                font-size: 3.5rem;
+                letter-spacing: 0.15rem;
+            }
+            .question {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container show-question">
+    <div class="container">
         <div class="ohrad">OHRAD</div>
         <div class="question">What is your motherland?</div>
     </div>
 
     <script>
-        // Show the question and make OHRAD transparent after a 2-second delay
+        // Show the question and make OHRAD transparent after a 3-second delay
         setTimeout(function() {
             document.querySelector('.container').classList.add('show-question');
-        }, 2000); // 2000ms = 2 seconds delay
+        }, 3000); // 3000ms = 3 seconds delay
     </script>
 </body>
 </html>
