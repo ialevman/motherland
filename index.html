@@ -22,23 +22,23 @@
             text-align: center;
         }
         .ohrad {
-            font-size: 8rem;
-            letter-spacing: 0.2rem;
+            font-size: 12rem; /* Increased font size for clarity */
+            letter-spacing: 0.5rem;
             color: white;
             position: relative;
-            z-index: 1; /* Move behind the question */
+            z-index: 1; /* Keeps OHRAD behind */
         }
         .question {
             font-size: 2rem;
-            opacity: 0; /* Hide the question initially */
-            transition: opacity 1s ease-in; /* Smooth transition */
+            opacity: 0; /* Hidden initially */
+            transition: opacity 1s ease-in; /* Smooth fade-in for question */
             position: absolute;
-            z-index: 2; /* Place the question in the forefront */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 50%; /* Vertically centers the question */
+            left: 50%; /* Horizontally centers the question */
+            transform: translate(-50%, -50%); /* Exact centering */
+            z-index: 2; /* Keeps question on top */
         }
-        /* Animation to show question after 2 seconds */
+        /* Show question after 2 seconds */
         .show-question {
             opacity: 1;
         }
@@ -51,11 +51,12 @@
     </div>
 
     <script>
-        // Wait for 2 seconds and then show the question
+        // Show the question after a 2-second delay
         setTimeout(function() {
             document.querySelector('.question').classList.add('show-question');
-        }, 2000); // 2000ms = 2 seconds
+        }, 2000); // 2000ms = 2 seconds delay
     </script>
 </body>
 </html>
+
 
