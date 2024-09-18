@@ -25,12 +25,15 @@
             font-size: 8rem;
             letter-spacing: 0.2rem;
             color: white;
+            position: relative;
+            z-index: 1; /* Move behind the question */
         }
         .question {
             font-size: 2rem;
             opacity: 0; /* Hide the question initially */
             transition: opacity 1s ease-in; /* Smooth transition */
             position: absolute;
+            z-index: 2; /* Place the question in the forefront */
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
