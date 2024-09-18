@@ -10,112 +10,39 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            background-color: black;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
         }
 
         .container {
-            color: white;
-            font-size: 5vw;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        /* Анимация исчезновения */
-        @keyframes fadeOut {
-            0% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-        }
-
-        /* Анимация разделения букв */
-        @keyframes breakApart {
-            0% {
-                opacity: 1;
-                transform: translate(0, 0);
-            }
-            50% {
-                opacity: 0.8;
-                transform: translate(-10vw, -10vh) rotate(20deg);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-20vw, -20vh) rotate(45deg);
-            }
-        }
-
-        .letter {
-            display: inline-block;
-            animation: fadeOut 4s ease-in-out 2s forwards, breakApart 6s ease-in-out 2s forwards;
-        }
-
-        /* Разные направления для разных букв */
-        .letter:nth-child(odd) {
-            animation: fadeOut 4s ease-in-out 2s forwards, breakApart 6s ease-in-out 2s forwards;
-        }
-
-        .letter:nth-child(even) {
-            animation: fadeOut 4s ease-in-out 2s forwards, breakApart 6s ease-in-out 2s reverse forwards;
-        }
-
-        .final-message {
-            display: none;
-            color: white;
-            font-size: 3vw;
             text-align: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            animation: showMessage 8s ease-in-out 8s forwards;
         }
 
-        @keyframes showMessage {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+        h1 {
+            font-size: 5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .question {
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="container" id="wordContainer">
-        <span class="letter">M</span>
-        <span class="letter">O</span>
-        <span class="letter">T</span>
-        <span class="letter">H</span>
-        <span class="letter">E</span>
-        <span class="letter">R</span>
-        <span class="letter">L</span>
-        <span class="letter">A</span>
-        <span class="letter">N</span>
-        <span class="letter">D</span>
+    <div class="container">
+        <h2 class="question">What is your motherland?</h2>
+        <h1>OHRAD</h1>
     </div>
-
-    <div class="final-message" id="finalMessage">
-        What is your motherland?
-    </div>
-
-    <script>
-        // Показ сообщения после исчезновения слова "Motherland"
-        setTimeout(function () {
-            document.getElementById('finalMessage').style.display = 'block';
-        }, 7000); // Появление через 7 секунд
-    </script>
 </body>
 </html>
