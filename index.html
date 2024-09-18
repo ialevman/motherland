@@ -32,22 +32,24 @@
             opacity: 1;
             position: relative;
             z-index: 1;
+            animation: fadeInOHRAD 2s forwards;
         }
 
         h2 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin: 0;
             padding: 0;
             position: absolute;
-            top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
+            top: 50%;
             opacity: 0;
-            animation: fadeIn 2s forwards;
+            animation: fadeInQuestion 2s forwards;
+            animation-delay: 2s; /* Delayed until after OHRAD appears */
             z-index: 2;
         }
 
-        @keyframes fadeIn {
+        @keyframes fadeInOHRAD {
             0% {
                 opacity: 0;
             }
@@ -56,12 +58,21 @@
             }
         }
 
-        /* Moving OHRAD behind the question */
+        @keyframes fadeInQuestion {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Adjusting position of OHRAD */
         h1 {
             position: absolute;
-            top: 55%; /* Slightly lower than the question */
             left: 50%;
-            transform: translateX(-50%);
+            top: 50%;
+            transform: translate(-50%, -50%);
             z-index: 0;
             opacity: 0.6;
         }
@@ -69,8 +80,8 @@
 </head>
 <body>
     <div class="container">
-        <h2>What is your motherland?</h2>
         <h1>OHRAD</h1>
+        <h2>What is your motherland?</h2>
     </div>
 </body>
 </html>
